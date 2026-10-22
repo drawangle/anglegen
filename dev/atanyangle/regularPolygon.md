@@ -106,11 +106,6 @@ a:hover {
 
 </header>
 
-<div id='top'></div>
----
-title: "正多角形ジェネレーター"
----
-
 [ホーム](../index.html) | [概要](../about.html) | [プライバシーポリシー](../privacy.html) | [お問い合わせ](../contact.html)
 
 ---

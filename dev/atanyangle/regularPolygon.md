@@ -1,10 +1,10 @@
+# 正多角形ジェネレーター: 正n角形を表示します
+
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="./res/alert.css">
 <link rel="stylesheet" href="regularPolygon.css">
 </head>
-
-# 正多角形ジェネレーター: 正n角形を表示します
 
 <header>
 

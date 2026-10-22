@@ -1,4 +1,6 @@
-# 正多角形ジェネレーター: 正n角形を表示します
+---
+title: "正多角形ジェネレーター: 正n角形を表示します"
+---
 
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -113,6 +115,7 @@ a:hover {
 
 [ホーム](../index.html) | [概要](../about.html) | [プライバシーポリシー](../privacy.html) | [お問い合わせ](../contact.html)
 
+# 正多角形ジェネレーター: 正n角形を表示します
 ---
 <div id='top'></div>
 

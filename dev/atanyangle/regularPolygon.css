@@ -1,0 +1,200 @@
+/* SVG自体のレスポンシブ設定 */
+.gallery-item svg {
+    width: 100%;
+    height: auto;
+    max-height: 240px;  /* 例: 最大高さを240pxに制限 */
+    object-fit: contain;  /* ※全体を表示させたい場合 */
+    display: block;      /* インラインブロック特有の下部余白を解除 */
+}
+/* SVGエリアのラッパー（画面サイズに応じて自動縮小、正方形を維持） */
+.svg-wrapper {
+    position: relative;     /* ★重要：これを基準にして子要素を浮かせる */
+    width: 98%;
+    /*aspect-ratio: 1 / 1;*/
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    padding: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none; /* ドラッグ中のテキスト選択を防止 */
+    border: 0.5px solid #333;
+}
+
+/* コントロールエリア（入力欄など） */
+.control-panel {
+    width: 98%;
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 2px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0px;
+    /*border: 0.5px solid #333;*/
+}
+
+.control-label {
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: bold;
+}
+
+/* 1. 入力欄とボタンを包むコンテナ（基準になる箱） */
+.input-container {
+    position: relative;
+    display: inline-block;
+}
+
+/* 入力欄のスマホ向け最適化スタイル */
+#anydegree {
+    font-size: 28px; /* スマホでも見やすい大きな文字 */
+    font-weight: bold;
+    width: 8ch;
+    padding: 0px;
+    padding-right: 20px; /* ×ボタン用の余白 */
+    text-align: center;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    background-color: #f8fafc;
+    color: #1e293b;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+/* 入力欄にフォーカスが当たったときの色変更 */
+#anydegree:focus {
+    border-color: #3b82f6;
+    background-color: #ffffff;
+}
+#anydegree::placeholder {
+    color: #ccc; /* 薄いグレー */
+    opacity: 1;  /* Firefox対策（デフォルトで透明度が下がっているのをリセット） */
+}
+
+/* クリア用の×ボタン */
+#clear-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #94a3b8;
+    cursor: pointer;
+    padding: 0;
+    display: none; /* 初期は非表示 */
+    line-height: 1;
+}
+/* 2. ボタンのコンテナを浮かせて下部に配置 */
+/* 1. 親要素を Flexbox にする */
+.container {
+    position: absolute;     /* ★重要：浮かせる */
+    bottom: -4px;           /* ★下端からの距離（好みで調整してください） */
+    left: 50%;              /* 一旦、左端を中央に持ってくる */
+    transform: translateX(-50%); /* 自身の幅の半分だけ左に戻して、ぴったり中央寄せ */
+
+    display: flex;
+    justify-content: space-between; /* 最初と最後は端っこ、間は等間隔 */
+    gap: 10px;      /* 2つのパネルの間の「すき間」を10pxあける（任意） */
+    width: 100%;    /* 横幅いっぱいに広げる */
+
+    max-width: 300px;       /* ボタンが広がりすぎないように最大幅を制限 */
+    z-index: 10;            /* SVGより手前に表示されるようにする */
+
+}
+
+.copy-png-btn {
+  /* 3. アイコン画像の設定 */
+  background-image: url('./res/icon_PNG.svg'); /* アイコン画像のパス */
+
+}
+.copy-svg-btn {
+  /* 3. アイコン画像の設定 */
+  background-image: url('./res/icon_SVG.svg'); /* アイコン画像のパス */
+
+}
+/* ボタンの基本スタイル設定 */
+.copy-png-btn,.copy-svg-btn {
+
+  position: relative; /* ツールチップの配置基準にする */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+    /* 1. サイズ調整（小さめに設定） */
+  width: 36px;
+  height: 18px;
+  padding: 0;
+
+  /* 2. デフォルトのボタン枠線や背景をリセット */
+  background-color: transparent; /* 背景透明 */
+  border: none;                  /* 枠線消去 */
+  cursor: pointer;               /* ホバー時に指マークにする */
+
+  /* 3. アイコン画像の設定 */
+  /*background-image: url('path/to/icon.svg');*/ /* アイコン画像のパス */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 32px 16px;    /* アイコン自体の表示サイズ */
+
+  /* 4. 見た目の微調整 */
+  border-radius: 4px;            /* 角丸 */
+  transition: background-color 0.2s ease; /* ホバー効果のアニメーション */
+}
+
+/* ホバー時のバックグラウンド（操作性を高めるため） */
+.copy-png-btn:hover,.copy-svg-btn:hover {
+  background-color: rgba(0, 0, 0, 0.05); /* うっすらグレーにする */
+  /*  background-color: #EF6C00;*/ /* 少し濃い青に */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* 影を強くして、より浮き上がらせる */
+
+
+}
+
+/* アクセシビリティ対応（画面上のテキストを隠す） */
+.copy-png-btn,.copy-svg-btn {
+  font-size: 0; /* 文字を非表示にする */
+}
+
+
+/* ツールチップ（吹き出し）の作成 */
+.copy-png-btn::after,.copy-svg-btn::after {
+  content: attr(data-tooltip); /* HTMLのdata-tooltip属性の文字を表示 */
+  position: absolute;
+  top: 100%;                  /* ボタンのすぐ下に配置 */
+  left: 0%;                  /* 右下に寄せる基準位置 */
+  margin-top: 6px;            /* ボタンとの隙間 */
+  
+  /* デザイン・レイアウト */
+  white-space: nowrap;        /* 改行防止 */
+  font-size: 9px;            /* 小さめの文字 */
+  line-height: 1;
+  color: #fff;
+  background-color: #333;     /* ダークな背景色 */
+  padding: 4px 8px;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+
+  /* アニメーションとディレイの設定 */
+  opacity: 0;                 /* 初期状態は透明 */
+  visibility: hidden;         /* 初期状態は非表示（クリック邪魔防止） */
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  transition-delay: 0s;       /* カーソルが外れた時はすぐに消す */
+  
+  pointer-events: none;       /* ツールチップ自体がマウス反応しないようにする */
+  z-index: 10;
+}
+
+/* ホバー時の挙動 */
+.copy-png-btn:hover::after,.copy-svg-btn:hover::after {
+  opacity: 1;
+  visibility: visible;
+  /* カーソルを乗せてから0.6秒後に表示（時間を変えたい場合はここを調整） */
+  transition-delay: 0.6s; 
+}
+
+

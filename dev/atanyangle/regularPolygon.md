@@ -3,6 +3,9 @@
 <link rel="stylesheet" href="./res/alert.css">
 <link rel="stylesheet" href="regularPolygon.css">
 </head>
+
+# 正多角形ジェネレーター: 正n角形を表示します
+
 <header>
 
 <!-- ツールUI操作エリア（HTML直書き） -->
@@ -106,7 +109,6 @@ a:hover {
 
 </header>
 
-# 正多角形ジェネレーター: 正n角形を表示します
 
 
 [ホーム](../index.html) | [概要](../about.html) | [プライバシーポリシー](../privacy.html) | [お問い合わせ](../contact.html)

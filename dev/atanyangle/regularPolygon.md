@@ -1,4 +1,3 @@
-# 正多角形ジェネレーター
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="./res/alert.css">
@@ -107,12 +106,14 @@ a:hover {
 
 </header>
 
+# 正多角形ジェネレーター: 正n角形を表示します
+
+
 [ホーム](../index.html) | [概要](../about.html) | [プライバシーポリシー](../privacy.html) | [お問い合わせ](../contact.html)
 
 ---
 <div id='top'></div>
 
-# 正多角形ジェネレーター: 正n角形を表示します
 
 ## 正多角形ジェネレーターの用途
 
